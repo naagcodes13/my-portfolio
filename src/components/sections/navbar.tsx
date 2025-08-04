@@ -3,9 +3,24 @@
 import { Navbar, NavbarContent, NavbarItem, Link } from "@heroui/react";
 import { Button } from "../ui/moving-border";
 
-// Animated Border Button Component
-const AnimatedBorderButton = ({ children, href }: { children: React.ReactNode; href: string }) => (
-  <Link href={href} className="relative inline-block p-[3px] group">
+// ✅ Updated AnimatedBorderButton Component
+const AnimatedBorderButton = ({
+  children,
+  href,
+  target,
+  rel,
+}: {
+  children: React.ReactNode;
+  href: string;
+  target?: string;
+  rel?: string;
+}) => (
+  <Link
+    href={href}
+    target={target}
+    rel={rel}
+    className="relative inline-block p-[3px] group"
+  >
     {/* Default Black Border */}
     <div className="absolute inset-0 bg-black rounded-lg transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-indigo-500 group-hover:to-purple-500" />
     
@@ -38,7 +53,11 @@ export default function NavigationBar() {
       {/* Right-aligned GitHub and Resume */}
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
-          <AnimatedBorderButton href="https://github.com/naag1311" target="_blank" rel="noopener noreferrer">
+          <AnimatedBorderButton
+            href="https://github.com/naag1311"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             GitHub
           </AnimatedBorderButton>
         </NavbarItem>
