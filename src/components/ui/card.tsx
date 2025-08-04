@@ -287,13 +287,20 @@ const TechStackSkeleton = () => {
       [".ml-6", { scale, transform }, { duration: 0.8 }],
     ];
   
-    useEffect(() => {
-      animate(sequence, {
-        repeat: Infinity,
-        repeatDelay: 1,
-      });
-    }, []);
-  
+   useEffect(() => {
+  const runAnimation = () => {
+    animate(sequence, {
+      duration: 2,
+      ease: "easeInOut",
+    });
+  };
+
+  runAnimation(); // initial run
+  const interval = setInterval(runAnimation, 3000); // adjust timing as needed
+
+  return () => clearInterval(interval); // cleanup
+}, []);
+
     return (
       <div className="p-8 overflow-hidden h-full w-[300px] max-w-full relative flex items-center justify-center">
         {/* Grid layout with 2 rows and 3 columns */}
