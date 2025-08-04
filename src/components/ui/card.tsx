@@ -305,10 +305,9 @@ const TechStackSkeleton = () => {
     });
   };
 
-  runAnimation(); // initial run
-  const interval = setInterval(runAnimation, 3000); // run every 3s
-
-  return () => clearInterval(interval); // cleanup on unmount
+  runAnimation();
+  const interval = setInterval(runAnimation, 3000);
+  return () => clearInterval(interval);
 }, []);
 
   
