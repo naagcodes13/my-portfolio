@@ -286,21 +286,23 @@ const TechStackSkeleton = () => {
       [".ml-5", { scale, transform }, { duration: 0.8 }],
       [".ml-6", { scale, transform }, { duration: 0.8 }],
     ];
-  
   useEffect(() => {
   const runAnimation = () => {
-    animate(sequence, {
+    animate(sequence, [
+      { scale: [1, 1.2, 1], transform: ["rotate(0deg)", "rotate(5deg)", "rotate(0deg)"] },
+    ], {
       duration: 2,
-      ease: "easeInOut",
+      easing: "ease-in-out",
     });
   };
 
-  runAnimation(); // run once immediately
-  const interval = setInterval(runAnimation, 3000); // run every 3 seconds
+  runAnimation(); // initial run
+  const interval = setInterval(runAnimation, 3000); // run every 3s
 
   return () => clearInterval(interval); // cleanup on unmount
 }, []);
 
+  
     return (
       <div className="p-8 overflow-hidden h-full w-[300px] max-w-full relative flex items-center justify-center">
         {/* Grid layout with 2 rows and 3 columns */}
