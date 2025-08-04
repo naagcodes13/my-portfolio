@@ -287,7 +287,7 @@ const TechStackSkeleton = () => {
       [".ml-6", { scale, transform }, { duration: 0.8 }],
     ];
   
-   useEffect(() => {
+  useEffect(() => {
   const runAnimation = () => {
     animate(sequence, {
       duration: 2,
@@ -295,10 +295,10 @@ const TechStackSkeleton = () => {
     });
   };
 
-  runAnimation(); // initial run
-  const interval = setInterval(runAnimation, 3000); // adjust timing as needed
+  runAnimation(); // run once immediately
+  const interval = setInterval(runAnimation, 3000); // run every 3 seconds
 
-  return () => clearInterval(interval); // cleanup
+  return () => clearInterval(interval); // cleanup on unmount
 }, []);
 
     return (
