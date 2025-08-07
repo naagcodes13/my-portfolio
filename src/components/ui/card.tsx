@@ -91,11 +91,19 @@ const BigDataSkeleton = () => {
     ];
   
     useEffect(() => {
-      animate(sequence, {
-        repeat: Infinity,
-        repeatDelay: 1,
-      });
-    }, []);
+  const runAnimation = () => {
+    animate(sequence, [
+      { scale: [1, 1.2, 1], transform: ["rotate(0deg)", "rotate(5deg)", "rotate(0deg)"] },
+    ], {
+      duration: 2,
+      easing: "ease-in-out",
+    });
+  };
+
+  runAnimation();
+  const interval = setInterval(runAnimation, 3000);
+  return () => clearInterval(interval);
+}, []);;
   
     return (
       <div className="p-8 overflow-hidden h-full relative flex items-center justify-center">
@@ -133,11 +141,19 @@ const BigDataSkeleton = () => {
     ];
   
     useEffect(() => {
-      animate(sequence, {
-        repeat: Infinity,
-        repeatDelay: 1,
-      });
-    }, []);
+  const runAnimation = () => {
+    animate(sequence, [
+      { scale: [1, 1.2, 1], transform: ["rotate(0deg)", "rotate(5deg)", "rotate(0deg)"] },
+    ], {
+      duration: 2,
+      easing: "ease-in-out",
+    });
+  };
+
+  runAnimation();
+  const interval = setInterval(runAnimation, 3000);
+  return () => clearInterval(interval);
+}, []);;
   
     return (
       <div className="p-8 overflow-hidden h-full w-[300px] max-w-full relative flex items-center justify-center">
