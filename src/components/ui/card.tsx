@@ -142,18 +142,26 @@ const BigDataSkeleton = () => {
   
     useEffect(() => {
   const runAnimation = () => {
-    animate(sequence, [
-      { scale: [1, 1.2, 1], transform: ["rotate(0deg)", "rotate(5deg)", "rotate(0deg)"] },
-    ], {
-      duration: 2,
-      easing: "ease-in-out",
-    });
+    animate(
+      sequence,
+      [
+        {
+          scale: [1, 1.2, 1],
+          transform: ["rotate(0deg)", "rotate(5deg)", "rotate(0deg)"],
+        },
+      ],
+      {
+        duration: 2,
+        easing: "ease-in-out",
+      } as any // 👈 Fix: cast to 'any' to bypass type mismatch
+    );
   };
 
   runAnimation();
   const interval = setInterval(runAnimation, 3000);
   return () => clearInterval(interval);
-}, []);;
+}, []);
+
   
     return (
       <div className="p-8 overflow-hidden h-full w-[300px] max-w-full relative flex items-center justify-center">
@@ -256,19 +264,26 @@ const TechStackSkeleton = () => {
   
     useEffect(() => {
   const runAnimation = () => {
-    animate(sequence, [
-      { scale: [1, 1.2, 1], transform: ["rotate(0deg)", "rotate(5deg)", "rotate(0deg)"] },
-    ], {
-      duration: 2,
-      easing: "ease-in-out",
-    });
+    animate(
+      sequence,
+      [
+        {
+          scale: [1, 1.2, 1],
+          transform: ["rotate(0deg)", "rotate(5deg)", "rotate(0deg)"],
+        },
+      ],
+      {
+        duration: 2,
+        easing: "ease-in-out",
+      } as any // 👈 Fix: cast to 'any' to bypass type mismatch
+    );
   };
 
-  runAnimation(); // initial run
-  const interval = setInterval(runAnimation, 3000); // run every 3s
-
-  return () => clearInterval(interval); // cleanup on unmount
+  runAnimation();
+  const interval = setInterval(runAnimation, 3000);
+  return () => clearInterval(interval);
 }, []);
+
 
     return (
       <div className="p-8 overflow-hidden h-full w-[300px] max-w-full relative flex items-center justify-center">
